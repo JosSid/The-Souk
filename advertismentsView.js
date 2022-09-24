@@ -1,3 +1,9 @@
+
+/**
+ * 
+ * @param {*objeto de datos de anuncio} advertisment 
+ * @returns HTML
+ */
 export const buildAdvertismentView = (advertisment) => {
     const advertismentView = `
     <h2 class="advertisment__statement">${advertisment.statement}</h2>

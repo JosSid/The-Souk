@@ -1,7 +1,8 @@
-import { advertismentsList } from './advertismentsList.js';
+import { getAdvertisments } from './advertismentsList.js';
 import { buildAdvertismentView } from './advertismentsView.js';
 
-export function advertismentsController(advertismentsControllerElement) {
+export async function advertismentsController(advertismentsControllerElement) {
+  const advertismentsList = await getAdvertisments();
   for (const advertisment of advertismentsList) {
     const articleElement = document.createElement('article');
 

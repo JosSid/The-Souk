@@ -1,20 +1,9 @@
-import { advertismentsList } from './advertismentsList.js';
-import { buildAdvertismentView } from './advertismentsView.js';
+import {advertismentsController} from './advertismentsController.js'
 
-export async function getElementAdvertisment(advertismentsList) {
+document.addEventListener('DOMContentLoaded', () => {
+    const sectionElement = document.getElementById('advertisments__container');
 
-  const sectionElement = document.getElementById('advertisments__container');
-
-  for(const advertisment of advertismentsList){
-    const articleElement = document.createElement('article');
-    articleElement.innerHTML = buildAdvertismentView(advertisment);
-
-  
-    sectionElement.appendChild(articleElement);
-    
-  }
-
-}
+    advertismentsController(sectionElement)
+});
 
 
-getElementAdvertisment(advertismentsList);

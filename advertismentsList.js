@@ -2,6 +2,7 @@ export const advertismentsList = [
     {
         statement: 'Wanted',
         photo: 'https://img.remediosdigitales.com/109c49/volkswagen-beetle-1967-annie-1-/450_1000.jpg',
+        name: 'VolksWagen Beetle',
         description: 'string',
         price: 'max. 5000 €'
     },

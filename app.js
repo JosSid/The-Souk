@@ -1,13 +1,20 @@
 import { advertismentsList } from './advertismentsList.js';
 import { buildAdvertismentView } from './advertismentsView.js';
 
-export async function getElementAdvertisment() {
-  const articleElement = document.createElement('article');
-  articleElement.innerHTML = buildAdvertismentView(advertismentsList[0]);
+export async function getElementAdvertisment(advertismentsList) {
+
   const sectionElement = document.getElementById('advertisments__container');
 
-  sectionElement.appendChild(articleElement);
-  return articleElement;
+  for(const advertisment of advertismentsList){
+    const articleElement = document.createElement('article');
+    articleElement.innerHTML = buildAdvertismentView(advertisment);
+
+  
+    sectionElement.appendChild(articleElement);
+    
+  }
+
 }
 
-export const pepe = getElementAdvertisment();
+
+getElementAdvertisment(advertismentsList);

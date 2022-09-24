@@ -1,6 +1,6 @@
-//Funcion para conevtarnos a la base de datos
+//Funcion para conectarnos a la base de datos
 /**
- * Datos API
+ * Datos API(anuncios)
  * @returns response.json
  */
 export async function getAdvertisments(){

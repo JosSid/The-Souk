@@ -14,3 +14,12 @@ export const buildAdvertismentView = (advertisment) => {
     `
     return advertismentView
 };
+/**
+ * HTML de ruleta de carga
+ * @returns HTML spinner
+ */
+export const buildSpinnerView = function(){
+    return `
+    <div class="spinner"><div>SEARCH</div><div>SEARCH</div></div>
+    `
+}

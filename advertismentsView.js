@@ -23,3 +23,9 @@ export const buildSpinnerView = function(){
     <div class="spinner"><div>SEARCH</div><div>SEARCH</div></div>
     `
 }
+
+export const buildEmptyAdvertismentsView = function(){
+    return `
+    <h2>we have no advertisments to show</h2>
+    `
+}

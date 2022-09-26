@@ -1,5 +1,5 @@
-import { getAds } from './advertismentsList.js';
-import { buildAdView, buildSpinnerView , buildEmptyAdsView} from './advertismentsView.js';
+import { getAds } from './adsList.js';
+import { buildAdView, buildSpinnerView , buildEmptyAdsView} from './adsView.js';
 
 /**
  * @param nodo que vamos a mutar mutar

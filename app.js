@@ -1,4 +1,4 @@
-import {AdsController} from './advertismentsController.js'
+import {AdsController} from './ads__list/AdsController.js'
 //Cuando el DOM este listo seleccionamos el nodo con el que vamos a trabajar
 document.addEventListener('DOMContentLoaded', () => {
     const sectionElement = document.getElementById('ads__container');

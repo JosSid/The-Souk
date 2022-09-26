@@ -1,18 +1,18 @@
 
 /**
  * 
- * @param {*objeto de datos de anuncio} advertisment 
+ * @param {*objeto de datos de anuncio} ad 
  * @returns HTML
  */
-export const buildAdvertismentView = (advertisment) => {
-    const advertismentView = `
-    <h2 class="advertisment__statement">${advertisment.statement}</h2>
-    <h2 class="advertisment__name">${advertisment.name}</h2>
-    <img class="advertisment__photo" src="${advertisment.photo}" alt="${advertisment.name}">
-    <h3 class="advertisment__description">${advertisment.description}</h3>
-    <h2 class="advertisment__price">${advertisment.price}</h2>
+export const buildAdView = (ad) => {
+    const adView = `
+    <h2 class="ad__statement">${ad.statement}</h2>
+    <h2 class="ad__name">${ad.name}</h2>
+    <img class="ad__photo" src="${ad.photo}" alt="${ad.name}">
+    <h3 class="ad__description">${ad.description}</h3>
+    <h2 class="ad__price">${ad.price}</h2>
     `
-    return advertismentView
+    return adView
 };
 /**
  * HTML de ruleta de carga
@@ -24,8 +24,8 @@ export const buildSpinnerView = function(){
     `
 }
 
-export const buildEmptyAdvertismentsView = function(){
+export const buildEmptyAdsView = function(){
     return `
-    <h2>we have no advertisments to show</h2>
+    <h2>we have no ads to show</h2>
     `
 }

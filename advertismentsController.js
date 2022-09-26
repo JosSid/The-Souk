@@ -1,43 +1,66 @@
-import { getAdvertisments } from './advertismentsList.js';
-import { buildAdvertismentView, buildSpinnerView , buildEmptyAdvertismentsView} from './advertismentsView.js';
+import { getAds } from './advertismentsList.js';
+import { buildAdView, buildSpinnerView , buildEmptyAdsView} from './advertismentsView.js';
 
 /**
  * @param nodo que vamos a mutar mutar
  * @return instancia controlador de anuncios
  */
-export class AdvertismentsController {
+export class AdsController {
   constructor(nodeElement){
-    this.advertismentsControllerElement = nodeElement;
+    this.adsControllerElement = nodeElement;
 
-    this.advertismentsController()
+    this.adsController()
   };
   /**
  * controlador de anuncios
- * @param {elemento del nodo que vamos a mutar} advertismentsControllerElement 
+ * @param {elemento del nodo que vamos a mutar} adsControllerElement 
  * @return nodo mutado
  */
-  async advertismentsController() {
-    this.advertismentsControllerElement.innerHTML = buildSpinnerView();
+  async adsController() {
+    //Mostramos la ruleta de carga
+    this.showSpinnerView();
     //Cuando recibimos los datos los capturamos en una variable
-    const advertismentsList = await getAdvertisments();
+    let adsList = null;
+    
+    try {
+      adsList = await getAds();
+    }catch(err){
+      alert(err)
+    }
     //Si el array de anuncios no tiene anuncios que mostrar
-    if(advertismentsList.length === 0) {
-      const divElement = document.createElement('div');
-      this.advertismentsControllerElement.appendChild(divElement);
-      divElement.outerHTML = buildEmptyAdvertismentsView()
+    if(adsList.length === 0) {
+      this.showEmptyAdsView()
     }
     //Seleccionamos la clase .spinner y le añadimos la clase .hide para esconder la ruleta antes de enseñar los anuncios
-    this.advertismentsControllerElement.querySelector('.spinner').classList.toggle('hide')
+    this.hideSpinnerView()
     //Por cada anuncio recibido creamos un elemento que anexaremos al nodo que vamos a mutar
-    for (const advertisment of advertismentsList) {
+    this.showFullAdsView(adsList)
+  };
+
+  showEmptyAdsView(){
+    const divElement = document.createElement('div');
+    this.adsControllerElement.appendChild(divElement);
+    divElement.outerHTML = buildEmptyAdsView()
+  };
+
+  showFullAdsView(adsList){
+    for (const ad of adsList) {
       //creamos el elemento que necesitamos
       const articleElement = document.createElement('article');
       //Le añadimos el HTML al elemento creado
-      articleElement.innerHTML = buildAdvertismentView(advertisment);
+      articleElement.innerHTML = buildAdView(ad);
       //Lo anexamos al nodo padre
-      this.advertismentsControllerElement.appendChild(articleElement);
+      this.adsControllerElement.appendChild(articleElement);
     };
   };
+  
+  showSpinnerView(){
+    this.adsControllerElement.innerHTML = buildSpinnerView();
+  };
+
+  hideSpinnerView(){
+    this.adsControllerElement.querySelector('.spinner').classList.toggle('hide')
+  }
 };
 
 

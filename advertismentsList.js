@@ -3,15 +3,31 @@
  * Datos API(anuncios)
  * @returns response.json
  */
-export async function getAdvertisments(){
+export async function getAds(){
     //Capturamos la URL para trabajar con ella
-    const advertismentsURL = 'http://localhost:8000/api/users'
+    const adsURL = 'http://localhost:8000/api/users'
 
-    return new Promise(async (resolve,reject) => {
-      //Hacemos fetch a la URL para conectarnos 
-      const response = await  fetch(advertismentsURL);
-      //Recibimos los datos
-      const advertisments = await response.json()
-      resolve(advertisments)
-    });
+    
+      let response;
+      try {
+        response = await  fetch(adsURL);//Hacemos fetch a la URL para conectarnos 
+      } catch (err) {
+        throw new Error('La URL no existe')
+      };
+
+      if(!response.ok){
+        throw new Error('Advertisments not found')
+      }
+
+      try {
+          //Recibimos los datos
+          const ads = await response.json()
+          return ads
+      } catch(err) {
+        throw new Error('La respuesta no es valida')
+      }
+
+
+
+    
 };

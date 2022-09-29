@@ -5,7 +5,7 @@
  */
 export async function getAds(){
     //Capturamos la URL para trabajar con ella
-    const adsURL = 'http://localhost:8000/api/users'
+    const adsURL = 'http://localhost:8000/api/advertisments'
 
     
       let response;

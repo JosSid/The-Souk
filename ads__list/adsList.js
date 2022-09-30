@@ -12,7 +12,7 @@ export async function getAds(){
       try {
         response = await  fetch(adsURL);//Hacemos fetch a la URL para conectarnos 
       } catch (err) {
-        throw new Error('La URL no existe')
+        throw new Error('Wrong URL')
       };
 
       if(!response.ok){
@@ -24,7 +24,7 @@ export async function getAds(){
           const ads = await response.json()
           return ads
       } catch(err) {
-        throw new Error('La respuesta no es valida')
+        throw new Error('Not valid response')
       }
 
 

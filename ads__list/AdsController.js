@@ -1,3 +1,4 @@
+import { pubSub } from '../notifications/pubSub.js';
 import { getAds } from './adsList.js';
 import { buildAdView, buildSpinnerView , buildEmptyAdsView} from './adsView.js';
 
@@ -20,12 +21,12 @@ export class AdsController {
     //Mostramos la ruleta de carga
     this.showSpinnerView();
     //Cuando recibimos los datos los capturamos en una variable
-    let adsList = null;
+    let adsList = [];
     
     try {
       adsList = await getAds();
     }catch(err){
-      alert(err)
+      pubSub.publish(pubSub.TOPICS.NOTIFICATION_ERROR, err)
     }
     //Si el array de anuncios no tiene anuncios que mostrar
     if(adsList.length === 0) {

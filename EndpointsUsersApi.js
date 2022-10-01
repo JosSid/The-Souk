@@ -12,13 +12,16 @@ class EndpointsUsersApi {
     };
 
     async post(endpoint, body){
-        await fetch(`${this.baseUrl}${endpoint}`, {
+       const response = await fetch(`${this.baseUrl}${endpoint}`, {
             method: 'POST',
             body: JSON.stringify(body),
             headers: {
                 "Content-Type": "application/json"
             }
         });
+        const data = await response.json();
+
+        return data;
     };
 };
 

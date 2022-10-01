@@ -58,9 +58,10 @@ export class SignupController {
         const password = formData.get('password');
         try {
             await registerUser(username, password);
-            await loginUser(username,password);
+            const jwt = await loginUser(username,password);
+            localStorage.setItem('token', jwt)
         }catch(err){
-            
+            pubSub.publish(pubSub.TOPICS.NOTIFICATION_ERROR, 'Register Error')
         }
         
     };

@@ -22,6 +22,8 @@ export const loginUser = async (username, password) => {
     const body = {
         username,
         password
-    }
-    await endPointsApi.post(endPointsApi.endPointsApi.login,body)
-}
+    };
+    const data = await endPointsApi.post(endPointsApi.endPointsApi.login,body);
+
+    return data.accessToken;
+};

@@ -1,4 +1,5 @@
 import { pubSub } from "../notifications/pubSub.js";
+import { registerUser } from "./signupList.js";
 
 //Controlador de registro de usuarios
 /**
@@ -44,10 +45,17 @@ export class SignupController {
         const regExp = new RegExp(/^[a-zA-Z0-9]*$/);
 
         if(regExp.test(passwordElement.value)) {
-
+            this.createUser()
         }else{
             pubSub.publish(pubSub.TOPICS.NOTIFICATION_ERROR, 'The password must have lowercase, uppercase and numbers');
         }
+    };
+
+     createUser() {
+        const formData = new FormData(this.signupFormElement);
+        const username = formData.get('username');
+        const password = formData.get('password')
+         registerUser(username, password);
     };
 };
 

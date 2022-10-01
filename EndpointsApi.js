@@ -4,12 +4,25 @@
  *@param {*} body 
  @return Api__Endpoint
  */
-class EndpointsUsersApi {
+class EndpointsApi {
     baseUrl = 'http://localhost:8000';
     endPointsApi = {
         signup: '/auth/register',
-        login: '/auth/login'
+        login: '/auth/login',
+        advertisments: '/api/advertisments'
     };
+
+    async get(endpoint){
+        const response = await fetch(`${this.baseUrl}${endpoint}`)
+
+        if(!response.ok){
+            throw new Error('There are no data')
+            
+        }
+         const data = await response.json();
+ 
+         return data;
+     };
 
     async post(endpoint, body){
        const response = await fetch(`${this.baseUrl}${endpoint}`, {
@@ -25,4 +38,4 @@ class EndpointsUsersApi {
     };
 };
 
-export const endPointsApi = new EndpointsUsersApi()
+export const endPointsApi = new EndpointsApi()

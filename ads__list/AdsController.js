@@ -26,7 +26,7 @@ export class AdsController {
     try {
       adsList = await getAds();
     }catch(err){
-      pubSub.publish(pubSub.TOPICS.NOTIFICATION_ERROR, err)
+      pubSub.publish(pubSub.TOPICS.NOTIFICATION_ERROR, 'Error loading advertisments')
     }
     //Si el array de anuncios no tiene anuncios que mostrar
     if(adsList.length === 0) {

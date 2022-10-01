@@ -1,4 +1,4 @@
-import {endPointsApi} from "../EndpointsUsersApi.js"
+import {endPointsApi} from "../EndpointsApi.js"
 
 /**
  * @param {*} username 
@@ -10,7 +10,9 @@ export const registerUser = async (username, password) => {
         username,
         password
     }
-    await endPointsApi.post(endPointsApi.endPointsApi.signup,body)
+    const data = await endPointsApi.post(endPointsApi.endPointsApi.signup,body)
+    
+    
 };
 
 /**

@@ -1,3 +1,5 @@
+import {endPointsApi} from "../EndpointsUsersApi.js"
+
 /**
  * @param {*} username 
  * @param {*} password 
@@ -8,11 +10,18 @@ export const registerUser = async (username, password) => {
         username,
         password
     }
-    await fetch('http://localhost:8000/auth/register', {
-        method: 'POST',
-        body: JSON.stringify(body),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    });
+    await endPointsApi.post(endPointsApi.endPointsApi.signup,body)
 };
+
+/**
+ * @param {*} username 
+ * @param {*} password 
+ * @Enviamos username y password para hacer login
+ */
+export const loginUser = async (username, password) => {
+    const body = {
+        username,
+        password
+    }
+    await endPointsApi.post(endPointsApi.endPointsApi.login,body)
+}

@@ -1,5 +1,5 @@
 import { pubSub } from "../notifications/pubSub.js";
-import { registerUser } from "./signupList.js";
+import { loginUser, registerUser } from "./signupList.js";
 
 //Controlador de registro de usuarios
 /**
@@ -11,6 +11,7 @@ export class SignupController {
         this.signupFormElement = nodeElement;
 
         this.subscribeToEvents();
+        
     };
 
     subscribeToEvents() {
@@ -51,11 +52,17 @@ export class SignupController {
         }
     };
 
-     createUser() {
+     async createUser() {
         const formData = new FormData(this.signupFormElement);
         const username = formData.get('username');
-        const password = formData.get('password')
-         registerUser(username, password);
+        const password = formData.get('password');
+        try {
+            await registerUser(username, password);
+            await loginUser(username,password);
+        }catch(err){
+            
+        }
+        
     };
 };
 

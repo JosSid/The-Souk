@@ -19,6 +19,7 @@ class EndpointsApi {
             throw new Error('There are no data')
             
         }
+        
          const data = await response.json();
  
          return data;

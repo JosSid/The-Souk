@@ -5,34 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create advertisment</title>
+    <link rel="stylesheet" href="styles/createAd.css">
 </head>
 <body>
+    <div class="container">
+        <div class="logo__container">
+            <img class="logo__img" src="https://i.postimg.cc/d0zTBD4z/souk-logo.png" alt="souk-logo">
+        </div>
 
+        <h2 class="title">The Souk</h2>
 
-    <form id="create__ad__form">
-        <fieldset class="statement__camp">
-            <legend>For sale or Wanted?</legend>
-            <label for="for__sale">For sale: </label>
-            <input type="radio" id="for__sale" name="statement" value="for sale" checked>
-            <label for="for__sale">Wanted: </label>
-            <input type="radio" id="wanted" name="statement" value="wanted">
-        </fieldset>
+        <form id="create__ad__form">
+            <fieldset class="statement__camp">
+                <legend>For sale or Wanted?</legend>
+                <label for="for__sale">For sale: </label>
+                <input type="radio" id="for__sale" name="statement" value="for sale" checked>
+                <label for="for__sale">Wanted: </label>
+                <input type="radio" id="wanted" name="statement" value="wanted">
+            </fieldset>
 
-        <label for="name">Title: </label>
-        <input type="text" id="name" name="name" placeholder="Title">
+            <label for="name">Title: </label>
+            <input type="text" id="name" name="name" placeholder="Title">
 
-        <label for="photo">Image:</label>
-        <input type="file" id="photo" name="photo">
+            <label for="photo">Image:</label>
+            <input type="file" id="photo" name="photo">
 
-        <label for="description">Description: </label>
-        <textarea name="description" id="description" cols="30" rows="5" placeholder="Description"></textarea>
+            <label for="description">Description: </label>
+            <textarea name="description" id="description" cols="30" rows="5" placeholder="Description"></textarea>
 
-        <label for="price">Price: </label>
-        <input type="text" id="price" name="price" placeholder="Price">
+            <label for="price">Price: </label>
+            <input type="text" id="price" name="price" placeholder="Price">
 
-        <button class="create__ad__button">Create Advertisment</button>
-    </form>
-
+            <button class="create__ad__button">Create Advertisment</button>
+        </form>
+    </div>
     <section class="notification__container"></section>
 
     <script type="module" src="create__ad/index.js"></script>

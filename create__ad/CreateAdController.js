@@ -21,6 +21,7 @@ export class CreateAdController {
     };
 
     createAd() {
+        const urlPhoto = 'https://i.postimg.cc/d0zTBD4z/souk-logo.png'
         const formData = new FormData(this.createAdElement);
         const statement = formData.get('statement');
         const name = formData.get('name');

@@ -12,3 +12,8 @@ export const getAdsById = async (adId) => {
 
     return ad;
 };
+
+export const removeAdById = async (adId) => {
+    const ad = await endPointsApi.delete(`${endPointsApi.endPointsApi.advertisments}/${adId}`)
+       
+};

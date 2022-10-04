@@ -39,6 +39,20 @@ class EndpointsApi {
 
         return data;
     };
+
+    async delete(endpoint){
+        const token = localStorage.getItem('token')
+         const response = await fetch(`${this.baseUrl}${endpoint}`, {
+             method: 'DELETE',
+             headers: {
+                 "Content-Type": "application/json",
+                 "Authorization": `Bearer ${token}`
+             }
+         });
+         const data = await response.json();
+ 
+         return data;
+     };
 };
 
 export const endPointsApi = new EndpointsApi()

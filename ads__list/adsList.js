@@ -6,7 +6,8 @@ import {endPointsApi} from '../EndpointsApi.js'
  */
 export async function getAds(){
     //Capturamos la URL para trabajar con ellaque nos viene de EndpointsApi.js
-    const ads = await endPointsApi.get(endPointsApi.endPointsApi.advertisments);
+    const endpoint = `${endPointsApi.endPointsApi.advertisments}?_expand=user`
+    const ads = await endPointsApi.get(endpoint);
 
     return ads;
    

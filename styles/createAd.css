@@ -1,3 +1,6 @@
+:root {
+    font-family: 'Berkshire Swash', cursive;
+}
 
 *{
     margin: 0;
@@ -23,6 +26,9 @@ body{
 }
 
 #create__ad__form {
+    color: rgb(145, 145, 42);
+    text-shadow: rgb(8, 8, 8) -1px -0.1px;
+    font-size: 25px;
     text-align: center;
     display: flex;
     align-items: center;
@@ -37,6 +43,7 @@ body{
 }
 
 .title {
+    font-family: 'Berkshire Swash', cursive;
     color: rgb(171, 171, 58);
     text-shadow: rgb(8, 8, 8) -1px -0.1px
     1px;

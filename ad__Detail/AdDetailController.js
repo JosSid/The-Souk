@@ -36,4 +36,10 @@ export class AdDetailController {
             location.replace('http://localhost:8080/index.html')
         }, 5000)
     }
+
+    drawDeleteButton() {
+        //El usuario ha hecho login
+        const token = localStorage.getItem('token');
+
+    }
 };

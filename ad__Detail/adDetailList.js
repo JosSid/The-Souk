@@ -7,7 +7,7 @@ import { endPointsApi } from "../EndpointsApi.js"
  * @returns advertisment
  */
 export const getAdsById = async (adId) => {
-    const ad = await endPointsApi.get(`${endPointsApi.endPointsApi.advertisments}/${adId}`)
+    const ad = await endPointsApi.get(`${endPointsApi.endPointsApi.advertisments}/${adId}?_expand=user`)
     
 
     return ad;

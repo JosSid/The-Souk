@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const token = localStorage.getItem('token');
         const userAction = document.getElementById('link__create__ad')
         if(!token){
-            userAction.innerHTML = '<a href="/signup.html"><button>Login</button></a>'
+            userAction.innerHTML = '<img src="https://i.postimg.cc/8cGmX8JT/souk-logo.png" alt="souk-logo"><a href="/signup.html"><button Class="login__button">Login or Register</button></a>'
         }else{
-            userAction.innerHTML = '<a href="/createAd.html"><button>Create Advertisment</button></a>'
+            userAction.innerHTML = '<img src="https://i.postimg.cc/8cGmX8JT/souk-logo.png" alt="souk-logo"><a href="/createAd.html"><button Class="login__button">Create Advertisment</button></a>'
         }
     }
 

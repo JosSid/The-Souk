@@ -1,0 +1,47 @@
+:root {
+    --txt-color: rgb(145, 145, 42);
+    --bg-color: rgb(220, 242, 183);
+    --border-color: rgb(145, 145, 42);
+    font-family: 'Berkshire Swash', cursive;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#link__create__ad {
+    height: 175px;
+    display:flex;
+    background-color: var(--bg-color);
+    justify-content: space-around;
+    align-items: center;
+    border: solid 5px var(--border-color);
+    border-radius: 10px;
+}
+
+.login__button {
+    color: var(--txt-color);
+    background-color: rgb(196, 232, 250) ;
+    margin:20px auto 20px;
+    border-radius: 5px;
+    border: solid 3px var(--border-color);
+}
+
+.ad__article {
+    margin: 5px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: solid 3px var(--border-color);
+}
+
+.ad__anchor {
+    justify-content: center;
+    align-items: center;
+    color: var(--txt-color);
+    text-decoration: none;
+    text-shadow: rgb(8, 8, 8) -1px -0.1px;
+}

@@ -17,6 +17,8 @@ export class CreateAdController {
 
         createAdButton.addEventListener('click', () => {
             this.createAd();
+            alert('Advertisment created')
+            window.location = '/'
         });
     };
 

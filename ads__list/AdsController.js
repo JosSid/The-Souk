@@ -48,6 +48,7 @@ export class AdsController {
     for (const ad of adsList) {
       //creamos el elemento que necesitamos
       const articleElement = document.createElement('article');
+      articleElement.setAttribute('class', 'ad__article')
       //Le añadimos el HTML al elemento creado
       articleElement.innerHTML = buildAdView(ad);
       //Lo anexamos al nodo padre

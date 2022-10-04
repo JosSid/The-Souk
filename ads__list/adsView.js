@@ -6,7 +6,7 @@
  */
 export const buildAdView = (ad) => {
     const adView = `
-    <a href="http://localhost:8080/adsDetail.html?id=${ad.id}">
+    <a class="ad__anchor" href="http://localhost:8080/adsDetail.html?id=${ad.id}">
     <h2 class="ad__statement">${ad.statement}</h2>
     <h2 class="ad__name">${ad.name}</h2>
     <h4 class="ad__username">User: ${ad.user.username}</h4>

@@ -23,12 +23,17 @@ export const buildAdView = (ad) => {
  */
 export const buildSpinnerView = function(){
     return `
+    <div class="spinner__container">
     <div class="spinner"><div>SEARCH</div><div>SEARCH</div></div>
+    </div>
     `
 }
 
 export const buildEmptyAdsView = function(){
     return `
-    <h2>we have no ads to show</h2>
+    <div class="empty__ads">
+        <h2>we have no ads to show</h2>
+        <img src="https://i.postimg.cc/3xwVFqDs/b7459526aeb0786638a2cf16951955b1.png" alt="empty">
+    </div>
     `
 }

@@ -20,28 +20,30 @@
         <h2 class="title">The Souk</h2>
 
         <form id="create__ad__form">
-            <fieldset class="statement__camp">
+            <fieldset class="statement__camp input__case">
                 <legend>For sale or Wanted?</legend>
                 <label for="for__sale">For sale: </label>
-                <input type="radio" id="for__sale" name="statement" value="for sale" checked>
+                <input type="radio" id="for__sale" name="statement" value="For sale" checked>
                 <label for="for__sale">Wanted: </label>
-                <input type="radio" id="wanted" name="statement" value="wanted">
+                <input type="radio" id="wanted" name="statement" value="Wanted">
             </fieldset>
 
             <label for="name">Title: </label>
-            <input type="text" id="name" name="name" placeholder="Title">
+            <input class="input__case" type="text" id="name" name="name" placeholder="  Title">
 
-            <label for="photo">Image:</label>
-            <input type="file" id="photo" name="photo">
+            <label for="photo">URL Image:</label>
+            <input class="input__case" type="text" id="photo" name="photo" placeholder="  URL Image">
 
             <label for="description">Description: </label>
-            <textarea name="description" id="description" cols="30" rows="5" placeholder="Description"></textarea>
+            <textarea class="input__case" name="description" id="description" cols="30" rows="5" maxlength="150" placeholder="  Description"></textarea>
 
             <label for="price">Price: </label>
-            <input type="text" id="price" name="price" placeholder="Price">
+            <input class="input__case" type="number" id="price" name="price" placeholder="  Price">
 
-            <button class="create__ad__button">Create Advertisment</button>
+            <button class="create__ad__button" disabled>Create Advertisment</button>
+            <p>All camps are required for create your advertisment</p>
         </form>
+        
     </div>
     <section class="notification__container"></section>
 

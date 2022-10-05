@@ -15,6 +15,19 @@ export class CreateAdController {
             event.preventDefault();
         })
 
+        const createAdInputElements = Array.from(this.createAdElement.querySelectorAll('input'));
+
+        createAdInputElements.forEach(inputElement => {
+            inputElement.addEventListener('input', () => {
+                const inputsValue = createAdInputElements.every(inputElement => inputElement.value);
+                if(inputsValue){
+                    createAdButton.removeAttribute('disabled')
+                   }else{
+                    createAdButton.setAttribute('disabled', '')
+                   }
+            })
+        });
+
         createAdButton.addEventListener('click', () => {
             this.createAd();
             alert('Advertisment created')

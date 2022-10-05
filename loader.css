@@ -1,10 +1,15 @@
+.spinner__container {
+  text-align: center;
+  margin-top: 50px;
+}
+
 .spinner {
     
     display: inline-block;
     position: relative;
     width: 80px;
     height: 80px;
-    background-color: rgb(220, 242, 183);
+    
   }
   .spinner.hide {
     display: none;

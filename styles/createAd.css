@@ -1,4 +1,7 @@
 :root {
+    --txt-color: rgb(145, 145, 42);
+    --bg-color: rgb(220, 242, 183);
+    --border-color: rgb(145, 145, 42);
     font-family: 'Berkshire Swash', cursive;
 }
 
@@ -25,6 +28,11 @@ body{
     background-color: rgb(220, 242, 183);
 }
 
+.input__case {
+    border: solid 4px rgb(171, 171, 58);
+    border-radius: 10px;   
+}
+
 #create__ad__form, .register__user__form {
     color: rgb(145, 145, 42);
     text-shadow: rgb(8, 8, 8) -1px -0.1px;
@@ -48,6 +56,14 @@ body{
     text-shadow: rgb(8, 8, 8) -1px -0.1px
     1px;
     font-size: 35px;
+}
+
+.create__ad__button {
+    color: var(--txt-color);
+    background-color: rgb(196, 232, 250) ;
+    margin:20px auto 20px;
+    border-radius: 5px;
+    border: solid 3px var(--border-color);
 }
 
 @media screen and (min-width: 450px) {

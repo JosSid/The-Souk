@@ -25,22 +25,26 @@
     
     <form class="register__user__form">
 
-        <label for="login">Login</label>
-        <input type="radio" name="statement" id="login" value="login" checked>
+        <fieldset class="statement__camp input__case">
+            <legend>Login or Register</legend>
+            <label for="login"> Login </label>
+            <input type="radio" name="statement" id="login" value="login" checked>
 
-        <label for="register">Register</label>
-        <input type="radio" name="statement" id="register" value="register">
+            <label for="register"> Register </label>
+            <input type="radio" name="statement" id="register" value="register">
+        </fieldset>
 
-        <label for="username">Username :</label>
-        <input id="username" name="username" type="text" placeholder="username">
+        <label for="username"> Username :</label>
+        <input class="input__case" id="username" name="username" type="text" placeholder="username">
 
-        <label for="password">Password :</label>
-        <input id="password" name="password" type="password" placeholder="password">
+        <label for="password"> Password :</label>
+        <input class="input__case" id="password" name="password" type="password" placeholder="password">
 
-        <label for="confirm__password">Confirm Password :</label>
-        <input id="confirm__password" name="confirm__password" type="password" placeholder="confirm__password">
+        <label for="confirm__password"> Confirm Password :</label>
+        <input class="input__case" id="confirm__password" name="confirm__password" type="password" placeholder="confirm__password">
 
-        <button id="register__user__button" disabled type="submit">Connect</button>
+        <button class="create__ad__button" id="register__user__button" disabled type="submit">Connect</button>
+        <p>All camps are required </p>
 
         
     </form>

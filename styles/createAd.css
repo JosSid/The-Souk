@@ -25,7 +25,7 @@ body{
     background-color: rgb(220, 242, 183);
 }
 
-#create__ad__form {
+#create__ad__form, .register__user__form {
     color: rgb(145, 145, 42);
     text-shadow: rgb(8, 8, 8) -1px -0.1px;
     font-size: 25px;
@@ -50,8 +50,13 @@ body{
     font-size: 35px;
 }
 
-@media screen and (max-width: 426px) {
-    img{
+@media screen and (min-width: 450px) {
+    .logo__imgP{
+        display: none;
+    }
+}
+@media screen and (max-width: 450px) {
+    .logo__imgG{
         display: none;
     }
 

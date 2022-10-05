@@ -37,6 +37,7 @@ export class SignupController {
     
     validatePassword() {
         const passwordElement = this.signupFormElement.querySelector('#password');
+        const confirmPasswordElement = this.signupFormElement.querySelector('#confirm__password');
 
         const minLength = 5;
         if(passwordElement.value.length <= minLength) {
@@ -46,7 +47,16 @@ export class SignupController {
         const regExp = new RegExp(/^[a-zA-Z0-9]*$/);
 
         if(regExp.test(passwordElement.value)) {
-            this.createUser()
+            if(passwordElement.value === confirmPasswordElement.value) {
+                this.createUser()
+                pubSub.publish(pubSub.TOPICS.NOTIFICATION_ERROR, 'Login User')
+                setTimeout(() => {
+                    window.location = '/'
+                }, 1500);
+            }else{
+                pubSub.publish(pubSub.TOPICS.NOTIFICATION_ERROR, 'Passwords do not match');
+            }
+            
         }else{
             pubSub.publish(pubSub.TOPICS.NOTIFICATION_ERROR, 'The password must have lowercase, uppercase and numbers');
         }
@@ -56,14 +66,30 @@ export class SignupController {
         const formData = new FormData(this.signupFormElement);
         const username = formData.get('username');
         const password = formData.get('password');
-        try {
-            await registerUser(username, password);
-            const jwt = await loginUser(username,password);
-            localStorage.setItem('token', jwt)
-        }catch(err){
-            pubSub.publish(pubSub.TOPICS.NOTIFICATION_ERROR, 'Register Error')
+        const statement = formData.get('statement')
+       
+        if(statement === 'register'){
+            try {
+                await registerUser(username, password);
+                const jwt = await loginUser(username,password);
+                localStorage.setItem('token', jwt)
+            }catch(err){
+                pubSub.publish(pubSub.TOPICS.NOTIFICATION_ERROR, 'Register Error')
+            }
         }
-        
+
+        if(statement === 'login'){
+            try {
+                const jwt = await loginUser(username,password);
+                localStorage.setItem('token', jwt)
+                if(jwt === undefined){
+                    pubSub.publish(pubSub.TOPICS.NOTIFICATION_ERROR, 'The data is not correct')
+                    localStorage.removeItem('token')
+                }
+            }catch(err){
+                pubSub.publish(pubSub.TOPICS.NOTIFICATION_ERROR, 'Login Error')
+            }
+        }
     };
 };
 

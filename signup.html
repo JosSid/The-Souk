@@ -5,22 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User register</title>
+    <link rel="stylesheet" href="styles/createAd.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
+</head>
 </head>
 <body>
 
     <section class="notification"></section>
+
+    <div class="container">
+        <div class="logo__container">
+            <img class="logo__imgG" src="https://i.postimg.cc/d0zTBD4z/souk-logo.png" alt="souk-logo">
+            <img class="logo__imgP" src="https://i.postimg.cc/8cGmX8JT/souk-logo.png" alt="souk-logo">
+        </div>
+
+        <h2 class="title">The Souk</h2>
     
     <form class="register__user__form">
-        <label for="username"></label>
+
+        <label for="login">Login</label>
+        <input type="radio" name="statement" id="login" value="login" checked>
+
+        <label for="register">Register</label>
+        <input type="radio" name="statement" id="register" value="register">
+
+        <label for="username">Username :</label>
         <input id="username" name="username" type="text" placeholder="username">
 
-        <label for="password"></label>
+        <label for="password">Password :</label>
         <input id="password" name="password" type="password" placeholder="password">
 
-        <button id="register__user__button" disabled type="submit">Register</button>
+        <label for="confirm__password">Confirm Password :</label>
+        <input id="confirm__password" name="confirm__password" type="password" placeholder="confirm__password">
 
-        <script type="module" src="./signup/index.js"></script>
+        <button id="register__user__button" disabled type="submit">Connect</button>
+
+        
     </form>
 
+    </div>
+    <script type="module" src="./signup/index.js"></script>
 </body>
 </html>

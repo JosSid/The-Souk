@@ -50,7 +50,7 @@ export class AdDetailController {
 
             if(tokenData.userId === this.ad.userId) {
                 const deleteButtonElement = document.createElement('div');
-                deleteButtonElement.innerHTML = '<button class="delete__button">Delete Advertisment</button>';
+                deleteButtonElement.innerHTML = '<button class="button__element delete__button">Delete Advertisment</button>';
                 this.adDetailElement.appendChild(deleteButtonElement);
 
                 deleteButtonElement.addEventListener('click', () => {

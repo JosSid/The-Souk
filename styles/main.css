@@ -31,7 +31,17 @@
     border: solid 3px var(--border-color);
 }
 
+#ads__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .ad__article {
+    height: 500px;
+    width: 350px;
+    text-align: center;
     margin: 5px;
     display:flex;
     justify-content: center;
@@ -55,8 +65,27 @@
     text-shadow: rgb(8, 8, 8) -1px -0.1px;
 }
 
-#ads__not__found {
+#ads__not__found, .welcome {
     text-align: center;
     color: var(--txt-color);
     text-shadow: rgb(8, 8, 8) -1px -0.1px;
+}
+
+.photo__frame {
+    max-width: 330px;
+    position: relative;
+    background-color: black;
+    border-radius: 5px;
+    border: solid 10px var(--border-color);
+    overflow: hidden;
+}
+
+@media screen and (max-width: 350px) {
+    .photo__frame{
+        max-width: 300px;
+    }
+
+    .login__button {
+        min-width: 130px;
+    }
 }

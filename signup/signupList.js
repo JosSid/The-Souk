@@ -13,7 +13,7 @@ export const registerUser = async (username, password) => {
     }
     try{
         const data = await endPointsApi.post(endPointsApi.endPointsApi.signup,body)
-        debugger;
+        
         if(!data){
             throw new Error('Error data base')
         }

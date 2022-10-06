@@ -22,6 +22,8 @@
 }
 
 .login__button {
+    min-height: 30px;
+    min-width: 150px;
     color: var(--txt-color);
     background-color: rgb(196, 232, 250) ;
     margin:20px auto 20px;
@@ -48,6 +50,12 @@
 
 .empty__ads {
     margin: 20px auto;
+    text-align: center;
+    color: var(--txt-color);
+    text-shadow: rgb(8, 8, 8) -1px -0.1px;
+}
+
+#ads__not__found {
     text-align: center;
     color: var(--txt-color);
     text-shadow: rgb(8, 8, 8) -1px -0.1px;

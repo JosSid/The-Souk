@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             setTimeout(() => {
                 window.location = "/signup.html"
-            },2000)
+            },5000)
         }
     }
 

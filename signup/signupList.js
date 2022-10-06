@@ -1,4 +1,5 @@
 import {endPointsApi} from "../EndpointsApi.js"
+import { pubSub } from "../notifications/pubSub.js";
 
 /**
  * @param {*} username 
@@ -10,8 +11,20 @@ export const registerUser = async (username, password) => {
         username,
         password
     }
-    const data = await endPointsApi.post(endPointsApi.endPointsApi.signup,body)
+    try{
+        const data = await endPointsApi.post(endPointsApi.endPointsApi.signup,body)
+        debugger;
+        if(!data){
+            throw new Error('Error data base')
+        }
     
+        if(data.message === 'Username is taken'){
+            throw new Error('Username is taken')
+        }
+    }catch(err){
+        pubSub.publish(pubSub.TOPICS.NOTIFICATION_ERROR, err)
+    }
+
     
 };
 

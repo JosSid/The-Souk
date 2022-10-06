@@ -52,7 +52,7 @@ export class SignupController {
                 pubSub.publish(pubSub.TOPICS.NOTIFICATION_ERROR, 'Login User')
                 setTimeout(() => {
                     window.location = '/'
-                }, 1500);
+                }, 4000);
             }else{
                 pubSub.publish(pubSub.TOPICS.NOTIFICATION_ERROR, 'Passwords do not match');
             }
@@ -71,10 +71,15 @@ export class SignupController {
         if(statement === 'register'){
             try {
                 await registerUser(username, password);
+
+            
                 const jwt = await loginUser(username,password);
                 localStorage.setItem('token', jwt)
+                if(jwt === undefined){
+                    localStorage.removeItem('token')
+                }
             }catch(err){
-                pubSub.publish(pubSub.TOPICS.NOTIFICATION_ERROR, 'Register Error')
+                pubSub.publish(pubSub.TOPICS.NOTIFICATION_ERROR, err)
             }
         }
 
@@ -83,9 +88,10 @@ export class SignupController {
                 const jwt = await loginUser(username,password);
                 localStorage.setItem('token', jwt)
                 if(jwt === undefined){
-                    pubSub.publish(pubSub.TOPICS.NOTIFICATION_ERROR, 'The data is not correct')
+                    pubSub.publish(pubSub.TOPICS.NOTIFICATION_ERROR, 'Username or Password is not correct')
                     localStorage.removeItem('token')
                 }
+
             }catch(err){
                 pubSub.publish(pubSub.TOPICS.NOTIFICATION_ERROR, 'Login Error')
             }

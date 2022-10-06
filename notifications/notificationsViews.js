@@ -5,7 +5,7 @@
  */
 export const buildNotificationView = (message) => {
     return `
-      <p>${message}</p>
-      <button class="button__close__notification">Close</button>
+      <h2>${message}</h2>
+      <button class="login__button button__close__notification">Close</button>
     `;
   }

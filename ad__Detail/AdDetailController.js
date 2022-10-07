@@ -2,6 +2,7 @@ import { getAdsById , removeAdById} from "./adDetailList.js";
 import {pubSub} from "../notifications/PubSub.js"
 import { buildAdById, buildEmptyDetailAd } from "./adDetailView.js";
 import { decodeToken } from "../utils/decodeToken.js";
+import { buildSpinnerView } from "../ads__list/adsView.js";
 
 /**
  * @param nodo
@@ -15,11 +16,14 @@ export class AdDetailController {
     }
 
     async drawAdDetail(adId) {
-        let adResponse;
 
+        this.showSpinnerView()
+        let adResponse;
+        
         try {
             adResponse = await getAdsById(adId);
             this.ad = adResponse
+            this.hideSpinnerView()
             this.adDetailElement.innerHTML = buildAdById(adResponse);
             this.drawDeleteButton(adResponse.userId);
             
@@ -29,8 +33,11 @@ export class AdDetailController {
         };
 
         if(adResponse === undefined){
+            this.hideSpinnerView()
             this.adResponseEmpty();
         };
+
+        
     };
 
     adResponseEmpty(){
@@ -77,4 +84,13 @@ export class AdDetailController {
 
         }
     }
+
+    showSpinnerView(){
+        this.adDetailElement.innerHTML = buildSpinnerView();
+      };
+
+    hideSpinnerView(){
+        this.adDetailElement.querySelector('.spinner').classList.toggle('hide')
+      }
+
 };

@@ -3,6 +3,7 @@
     --bg-color: rgb(220, 242, 183);
     --border-color: rgb(145, 145, 42);
     font-family: 'Berkshire Swash', cursive;
+    font-family: 'Roboto', sans-serif;
 }
 
 *{
@@ -34,8 +35,7 @@ body{
 }
 
 #create__ad__form, .register__user__form , .ad__detail__container{
-    color: rgb(145, 145, 42);
-    text-shadow: rgb(8, 8, 8) -1px -0.1px;
+
     font-size: 25px;
     text-align: center;
     display: flex;

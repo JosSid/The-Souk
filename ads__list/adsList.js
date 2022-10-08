@@ -4,9 +4,12 @@ import {endPointsApi} from '../EndpointsApi.js'
  * Datos API(anuncios)
  * @returns response.json
  */
-export async function getAds(){
+export async function getAds(pageNumber){
     //Capturamos la URL para trabajar con ellaque nos viene de EndpointsApi.js
-    const endpoint = `${endPointsApi.endPointsApi.advertisments}?_expand=user`
+     
+    const endpoint = `${endPointsApi.endPointsApi.advertisments}?_expand=user&_page=${pageNumber}&_limit=6`
+    debugger;
+    
     const ads = await endPointsApi.get(endpoint);
 
     return ads;

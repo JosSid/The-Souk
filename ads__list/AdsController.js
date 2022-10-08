@@ -7,24 +7,32 @@ import { buildAdView, buildSpinnerView , buildEmptyAdsView} from './adsView.js';
  * @return instancia controlador de anuncios
  */
 export class AdsController {
-  constructor(nodeElement){
+  constructor(nodeElement,pageNumber){
     this.adsControllerElement = nodeElement;
+    this.pageNumber = pageNumber
+    debugger;
+    
 
-    this.adsController()
+    this.adsController(pageNumber)
   };
   /**
  * controlador de anuncios
  * @param {elemento del nodo que vamos a mutar} adsControllerElement 
  * @return nodo mutado
  */
-  async adsController() {
+  async adsController(pageNumber) {
     //Mostramos la ruleta de carga
     this.showSpinnerView();
     //Cuando recibimos los datos los capturamos en una variable
     let adsList = [];
     
+
+
+
+
+    
     try {
-      adsList = await getAds();
+      adsList = await getAds(pageNumber);
     }catch(err){
       pubSub.publish(pubSub.TOPICS.NOTIFICATION_ERROR, 'Error loading advertisments')
     }

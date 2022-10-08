@@ -22,6 +22,15 @@
     border-radius: 10px;
 }
 
+
+.hide {
+    display: none;
+}
+
+.view {
+    display: block;
+}
+
 .login__button {
     min-height: 30px;
     min-width: 150px;
@@ -80,6 +89,11 @@
     border-radius: 5px;
     border: solid 10px var(--border-color);
     overflow: hidden;
+}
+
+.paginacion {
+    margin: 10px auto;
+    text-align: center;
 }
 
 @media screen and (max-width: 350px) {

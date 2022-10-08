@@ -3,13 +3,43 @@ import { NotificationController } from './notifications/NotificationController.j
 import { decodeToken } from "./utils/decodeToken.js";
 //Cuando el DOM este listo seleccionamos el nodo con el que vamos a trabajar
 document.addEventListener('DOMContentLoaded', () => {
-    const createController = () => {
+    const createController = (pageNumber) => {
         const sectionElement = document.getElementById('ads__container');
         const notificationElement = document.getElementById('ads__not__found');
+
+        
         //Le pasamos el nodo seleccionado al controlador y ejecutamos la función
-        const adsController = new AdsController(sectionElement);
+        const adsController = new AdsController(sectionElement,pageNumber);
         const notificationController = new NotificationController(notificationElement);
     };
+
+    const prevButtonElement = document.querySelector('#prev');
+    const nextButtonElement = document.querySelector('#next');
+
+    const getPageNumber = () => {
+        
+        let pageNumber = 2
+        if(pageNumber > 1){
+            prevButtonElement.removeAttribute('class')
+            prevButtonElement.setAttribute('class', 'login__button')
+        }
+
+        prevButtonElement.addEventListener('click',  () => {
+                
+             createController(pageNumber--)
+            
+       })
+
+       nextButtonElement.addEventListener('click', () => {
+        debugger;
+        createController(pageNumber++)
+        debugger;
+      
+        })
+
+        
+
+    }
 
     const loginUserState = () => {
         const token = localStorage.getItem('token');
@@ -36,9 +66,19 @@ document.addEventListener('DOMContentLoaded', () => {
             `
         }
     }
-
-    createController();
+ 
+    
+    debugger;
+    let pageNumber = 1
+    if(pageNumber === 1) {
+        prevButtonElement.setAttribute('class','hide');
+    }
+    createController(pageNumber)
+    pageNumber = getPageNumber()
+    
+    debugger;
     loginUserState();
+    debugger;
 });
 
 

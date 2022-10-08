@@ -7,6 +7,7 @@ import { adBodyView } from "../utils/adBodyView.js";
  */
 export const buildAdView = (ad) => {
     const adView = `
+
     <a class="ad__anchor" href="http://localhost:8080/adsDetail.html?id=${ad.id}">
         ${adBodyView(ad)}
    </a> 

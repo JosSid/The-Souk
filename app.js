@@ -16,31 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevButtonElement = document.querySelector('#prev');
     const nextButtonElement = document.querySelector('#next');
 
-    const getPageNumber = () => {
-        
-        let pageNumber = 2
-        if(pageNumber > 1){
-            prevButtonElement.removeAttribute('class')
-            prevButtonElement.setAttribute('class', 'login__button')
-        }
-
-        prevButtonElement.addEventListener('click',  () => {
-                
-             createController(pageNumber--)
-            
-       })
-
-       nextButtonElement.addEventListener('click', () => {
-        debugger;
-        createController(pageNumber++)
-        debugger;
-      
-        })
-
-        
-
-    }
-
+    
     const loginUserState = () => {
         const token = localStorage.getItem('token');
 
@@ -70,10 +46,40 @@ document.addEventListener('DOMContentLoaded', () => {
     
     debugger;
     let pageNumber = 1
-    if(pageNumber === 1) {
-        prevButtonElement.setAttribute('class','hide');
-    }
+
     createController(pageNumber)
+
+    const getPageNumber = () => {
+        
+        
+        debugger;
+
+        prevButtonElement.addEventListener('click',  () => {
+              pageNumber--  
+              if(pageNumber === 1){
+                prevButtonElement.classList.toggle('hide')
+              }
+             createController(pageNumber)
+            
+       })
+
+       nextButtonElement.addEventListener('click', () => {
+        pageNumber++
+        if(pageNumber === 2){
+            prevButtonElement.classList.toggle('hide')
+            
+        }
+        debugger;
+        createController(pageNumber)
+        debugger;
+      
+        })
+
+        
+        return pageNumber
+    }
+
+
     pageNumber = getPageNumber()
     
     debugger;

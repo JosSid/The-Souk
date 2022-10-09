@@ -1,4 +1,4 @@
-import {endPointsApi} from "../EndpointsApi.js"
+import {endPointsApi} from "../utils/EndpointsApi.js"
 import { pubSub } from "../notifications/pubSub.js";
 
 /**

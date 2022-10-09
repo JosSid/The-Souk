@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         //Le pasamos el nodo seleccionado al controlador y ejecutamos la función
         const adsController = new AdsController(sectionElement,pageNumber);
         const notificationController = new NotificationController(notificationElement);
+
     };
 
     const prevButtonElement = document.querySelector('#prev');
@@ -38,13 +39,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 <a href="/createAd.html">
                     <button Class="login__button">Create Advertisment</button>
                 </a>
+                <button id="log__out" class="login__button">Log out</button>
             </div>
             `
+            const logOutButtonElement = document.querySelector('#log__out')
+
+            logOutButtonElement.addEventListener('click', () => {
+                localStorage.removeItem('token')
+                window.location = '/'
+            })
+            
         }
     }
  
     
-    debugger;
+    
     let pageNumber = 1
 
     createController(pageNumber)
@@ -52,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const getPageNumber = () => {
         
         
-        debugger;
+        
 
         prevButtonElement.addEventListener('click',  () => {
               pageNumber--  
@@ -69,10 +78,10 @@ document.addEventListener('DOMContentLoaded', () => {
             prevButtonElement.classList.toggle('hide')
             
         }
-        debugger;
+        
+        
         createController(pageNumber)
-        debugger;
-      
+
         })
 
         
@@ -82,9 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     pageNumber = getPageNumber()
     
-    debugger;
+    
     loginUserState();
-    debugger;
+    
 });
 
 

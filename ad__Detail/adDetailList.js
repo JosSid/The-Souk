@@ -1,4 +1,4 @@
-import { endPointsApi } from "../EndpointsApi.js"
+import { endPointsApi } from "../utils/EndpointsApi.js"
 
 //Pediremos el el detalle del anuncio a la API
 /**

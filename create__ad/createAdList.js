@@ -1,4 +1,4 @@
-import { endPointsApi } from "../EndpointsApi.js"
+import { endPointsApi } from "../utils/EndpointsApi.js"
 
 export const createApiAd = (statement,name,photo,description,price) => {
     endPointsApi.post(endPointsApi.endPointsApi.advertisments, {

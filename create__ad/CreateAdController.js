@@ -21,17 +21,17 @@ export class CreateAdController {
             inputElement.addEventListener('input', () => {
                 const inputsValue = createAdInputElements.every(inputElement => inputElement.value);
                 if(inputsValue){
-                    createAdButton.removeAttribute('disabled')
+                    createAdButton.removeAttribute('disabled');
                    }else{
-                    createAdButton.setAttribute('disabled', '')
-                   }
-            })
+                    createAdButton.setAttribute('disabled', '');
+                   };
+            });
         });
 
         createAdButton.addEventListener('click', () => {
             this.createAd();
-            alert('Advertisment Created')
-            window.location = '/'
+            alert('Advertisment Created');
+            window.location = '/';
         });
     };
 
@@ -44,5 +44,5 @@ export class CreateAdController {
         const description = formData.get('description');
         const price = formData.get('price');
         createApiAd(statement,name,photo,description,price);
-    }
-}
+    };
+};

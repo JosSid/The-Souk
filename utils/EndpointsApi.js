@@ -40,6 +40,21 @@ class EndpointsApi {
         return data;
     };
 
+    async put(endpoint,body){
+        const token = localStorage.getItem('token')
+        const response = await fetch(`${this.baseUrl}${endpoint}`, {
+            method: 'PUT',
+            body: JSON.stringify(body),
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            }
+        });
+        const data = await response.json();
+
+        return data;
+    }
+
     async delete(endpoint){
         const token = localStorage.getItem('token')
          const response = await fetch(`${this.baseUrl}${endpoint}`, {

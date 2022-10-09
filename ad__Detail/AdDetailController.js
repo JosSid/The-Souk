@@ -58,12 +58,24 @@ export class AdDetailController {
             if(tokenData.userId === this.ad.userId) {
                 
                 const deleteButtonElement = document.createElement('div');
+                const updateButtonElement = document.createElement('div')
                 deleteButtonElement.innerHTML = '<button class="button__element delete__button">Delete Advertisment</button>';
+                updateButtonElement.innerHTML = '<button class="button__element">Update Adverstisment</button>'
                 this.adDetailElement.appendChild(deleteButtonElement);
+                this.adDetailElement.appendChild(updateButtonElement)
 
                 deleteButtonElement.addEventListener('click', () => {
                     this.removeAd()
                 });
+
+                updateButtonElement.addEventListener('click', () => {
+                    Object.entries(this.ad).forEach(([key,value]) => {
+                        localStorage.setItem(key,value)
+                    })
+                    
+                    window.location = '/update.html'
+                })
+                
                 
             };
         };      

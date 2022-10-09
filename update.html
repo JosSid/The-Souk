@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Advertisment</title>
+    <link rel="stylesheet" href="styles/createAd.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="logo__container">
+            <img class="logo__imgG" src="https://i.postimg.cc/d0zTBD4z/souk-logo.png" alt="souk-logo">
+            <img class="logo__imgP" src="https://i.postimg.cc/8cGmX8JT/souk-logo.png" alt="souk-logo">
+        </div>
+
+        <section class="notification__container"></section>
+
+        <h2 class="title">The Souk</h2>
+
+        <form id="create__ad__form">
+            <fieldset class="statement__camp input__case">
+                <legend>For sale or Wanted?</legend>
+                <label for="for__sale">For sale: </label>
+                <input type="radio" id="for__sale" name="statement" value="For sale" checked>
+                <label for="for__sale">Wanted: </label>
+                <input type="radio" id="wanted" name="statement" value="Wanted">
+            </fieldset>
+
+            <label for="name">Title: </label>
+            <input class="input__case" type="text" id="name" name="name" placeholder="  Title">
+
+            <label for="photo">URL Image:</label>
+            <input class="input__case" type="text" id="photo" name="photo" placeholder="  URL Image">
+
+            <label for="description">Description: </label>
+            <textarea class="input__case" name="description" id="description" cols="30" rows="5" maxlength="150" placeholder="  Description"></textarea>
+
+            <label for="price">Price: </label>
+            <input class="input__case" type="text" id="price" name="price" placeholder="  Price">
+
+            <button class="create__ad__button">Update Advertisment</button>
+            <p>All camps are required for create your advertisment</p>
+        </form>
+        
+    </div>
+    
+
+    <script type="module" src="update__ad/index.js"></script>
+</body>
+</html>

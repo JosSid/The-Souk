@@ -30,13 +30,13 @@ export class CreateAdController {
 
         createAdButton.addEventListener('click', () => {
             this.createAd();
-            alert('Advertisment created')
+            alert('Advertisment Created')
             window.location = '/'
         });
     };
 
     createAd() {
-        const urlPhoto = 'https://i.postimg.cc/d0zTBD4z/souk-logo.png'
+       
         const formData = new FormData(this.createAdElement);
         const statement = formData.get('statement');
         const name = formData.get('name');
